@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  bookings  Booke[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("user")
+}
+
+model Bardershop {
+  id          String              @id @default(uuid())
+  name        String
+  address     String
+  phones      String[]
+  deacription String
+  imageUrl    String              @map("image_url")
+  services    BardershopService[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@map("barder_shop")
+}
+
+model BardershopService {
+  id          String  @id @default(uuid())
+  name        String
+  description String
+  imageUrl    String  @map("image_url")
+  price       Decimal @db.Decimal(10, 2)
+
+  bardershopId String
+  bardershop   Bardershop @relation(fields: [bardershopId], references: [id])
+  bookings     Booke[]
+
+  @@map("barder_shop_service")
+}
+
+model Booke {
+  id        String            @id @default(uuid())
+  userId    String
+  user      User              @relation(fields: [userId], references: [id])
+  serviceId String
+  service   BardershopService @relation(fields: [serviceId], references: [id])
+  date      DateTime
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@map("booke")
+}
