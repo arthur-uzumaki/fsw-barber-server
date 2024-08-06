@@ -7,6 +7,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { createUser } from './routers/user'
+import { fetchBarberShop } from './routers/fetch-barber-shop'
 
 const app = fastify()
 
@@ -19,6 +20,7 @@ app.register(cors, {
 })
 
 app.register(createUser)
+app.register(fetchBarberShop)
 
 app
   .listen({
