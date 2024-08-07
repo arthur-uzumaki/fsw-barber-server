@@ -6,8 +6,9 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
-import { createUser } from './routers/user'
-import { fetchBarberShop } from './routers/fetch-barber-shop'
+
+import { fetchBarberShop } from '@/routers/fetch-barber-shop'
+import { fetchBarberShopDetail } from '@/routers/fetch-barber-shop-details'
 
 const app = fastify()
 
@@ -19,8 +20,8 @@ app.register(cors, {
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
 })
 
-app.register(createUser)
 app.register(fetchBarberShop)
+app.register(fetchBarberShopDetail)
 
 app
   .listen({

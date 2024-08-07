@@ -18,8 +18,8 @@ export async function fetchBarberShop(app: FastifyInstance) {
                 phones: z.array(z.string()),
                 description: z.string(),
                 imageUrl: z.string(),
-                createdAt: z.string(),
-                updatedAt: z.string(),
+                createdAt: z.coerce.date(),
+                updatedAt: z.coerce.date(),
               }),
             ),
           }),
@@ -40,13 +40,7 @@ export async function fetchBarberShop(app: FastifyInstance) {
         },
       })
 
-      const formattedBarbershops = barbershops.map((barbershop) => ({
-        ...barbershop,
-        createdAt: barbershop.createdAt.toISOString(),
-        updatedAt: barbershop.updatedAt.toISOString(),
-      }))
-
-      return reply.status(200).send({ barbershops: formattedBarbershops })
+      return reply.status(200).send({ barbershops })
     },
   )
 }
