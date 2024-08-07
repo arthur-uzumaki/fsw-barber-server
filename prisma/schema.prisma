@@ -43,8 +43,8 @@ model Barbershopservice {
   imageUrl    String  @map("image_url")
   price       Decimal @db.Decimal(10, 2)
 
-  bardershopId String
-  bardershop   Barbershop @relation(fields: [bardershopId], references: [id])
+  barbershopId String
+  barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   bookings     Booke[]
 
   @@map("barder_shop_service")

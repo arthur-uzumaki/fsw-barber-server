@@ -5,4 +5,4 @@ GET  {{baseUrl}}/barbershops
 
 ###
 
-GET {{baseUrl}}/c986ed61-52e2-4679-a3dd-fd6ba76263a0
+GET {{baseUrl}}/barbershops/c986ed61-52e2-4679-a3dd-fd6ba76263a0

@@ -22,6 +22,16 @@ export async function fetchBarberShopDetail(app: FastifyInstance) {
               imageUrl: z.string(),
               createdAt: z.coerce.date(),
               updatedAt: z.coerce.date(),
+              services: z
+                .object({
+                  id: z.string(),
+                  name: z.string(),
+                  description: z.string(),
+                  imageUrl: z.string(),
+                  price: z.number().int().positive(),
+                  bardershopId: z.string().uuid(),
+                })
+                .array(),
             }),
           }),
         },
@@ -34,13 +44,26 @@ export async function fetchBarberShopDetail(app: FastifyInstance) {
         where: {
           id,
         },
+        include: {
+          services: true,
+        },
       })
 
       if (!barbershop) {
         throw new Error('Barber Shop not found')
       }
 
-      return reply.status(200).send({ barbershop })
+      const barbershopWithConvertedPrices = {
+        ...barbershop,
+        services: barbershop.services.map((service) => ({
+          ...service,
+          price: service.price.toNumber(),
+        })),
+      }
+
+      return reply
+        .status(200)
+        .send({ barbershop: barbershopWithConvertedPrices })
     },
   )
 }
