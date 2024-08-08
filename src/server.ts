@@ -10,7 +10,8 @@ import {
 
 import { fetchBarberShop } from '@/routers/fetch-barber-shop'
 import { fetchBarberShopDetail } from '@/routers/fetch-barber-shop-details'
-import { authRoute } from './routers/auth'
+import { authRoute } from '@/routers/auth'
+import { search } from '@/routers/search'
 
 const app = fastify()
 
@@ -24,9 +25,10 @@ app.register(cors, {
 
 app.register(jwt, { secret: 'fwsbarber' })
 
+app.register(authRoute)
 app.register(fetchBarberShop)
 app.register(fetchBarberShopDetail)
-app.register(authRoute)
+app.register(search)
 
 app
   .listen({

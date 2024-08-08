@@ -14,3 +14,7 @@ Content-Type: application/json
 {
   "code": "4/0AcvDMrAu9o4tKOlldN6fbqY_QftNZWwoyWgAxkTXPfMvqv_jxAK7GKNB7-QqvfSAYLfpvg"
 }
+
+###
+
+GET {{baseUrl}}/search-barbershops?title=corte
