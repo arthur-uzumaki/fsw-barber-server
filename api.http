@@ -5,4 +5,12 @@ GET  {{baseUrl}}/barbershops
 
 ###
 
-GET {{baseUrl}}/barbershops/c986ed61-52e2-4679-a3dd-fd6ba76263a0
+GET {{baseUrl}}/barbershops/0deb0342-3ff2-4b79-a554-cc36f85450a4
+
+###
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+  "code": "4/0AcvDMrAu9o4tKOlldN6fbqY_QftNZWwoyWgAxkTXPfMvqv_jxAK7GKNB7-QqvfSAYLfpvg"
+}

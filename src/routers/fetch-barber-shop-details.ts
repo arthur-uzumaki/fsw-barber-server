@@ -29,7 +29,7 @@ export async function fetchBarberShopDetail(app: FastifyInstance) {
                   description: z.string(),
                   imageUrl: z.string(),
                   price: z.number().int().positive(),
-                  bardershopId: z.string().uuid(),
+                  barbershopId: z.string().uuid(),
                 })
                 .array(),
             }),

@@ -12,9 +12,13 @@ generator erd {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String  @id @default(uuid())
   name      String
   email     String
+  login     String
+  googleId  String? @unique
+  avatarUrl String
+
   bookings  Booke[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
