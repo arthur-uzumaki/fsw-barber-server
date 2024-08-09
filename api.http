@@ -18,3 +18,12 @@ Content-Type: application/json
 ###
 
 GET {{baseUrl}}/search-barbershops?title=corte
+
+### 
+POST {{baseUrl}}/bookings/00abcf4b-0ae2-4c18-ad09-139f16b1716e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJ0aHVyIFNvdXNhIiwiYXZhdGFyX3VybCI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0pvRzV6UU11XzhmRzM4dzh0S3RwSElYR3ZmWFNYd1NwSkJ0ekd2MElaV19ndWt3UT1zOTYtYyIsImVtYWlsIjoiYXJ0aHVyc291c2FyYWJlbG8yQGdtYWlsLmNvbSIsInN1YiI6ImJkM2U5MDQ4LWJhNTktNDliZC04Mjg2LTNiYzAyMzhlZWY0MiIsImlhdCI6MTcyMzIyNjQ5MiwiZXhwIjoxNzIzODMxMjkyfQ.M3O5tc_c2JUGAGel2hNWv8LuPx8doitLmmIOuhsqhQA
+Content-Type: application/json
+
+{
+  "date": "2024-08-18T09:00:00"
+}

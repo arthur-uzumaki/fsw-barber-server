@@ -12,6 +12,7 @@ import { fetchBarberShop } from '@/routers/fetch-barber-shop'
 import { fetchBarberShopDetail } from '@/routers/fetch-barber-shop-details'
 import { authRoute } from '@/routers/auth'
 import { search } from '@/routers/search'
+import { createBooking } from '@/routers/create-booking'
 
 const app = fastify()
 
@@ -29,6 +30,7 @@ app.register(authRoute)
 app.register(fetchBarberShop)
 app.register(fetchBarberShopDetail)
 app.register(search)
+app.register(createBooking)
 
 app
   .listen({
