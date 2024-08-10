@@ -18,10 +18,6 @@ export async function authRoute(app: FastifyInstance) {
     async (request, reply) => {
       const { code } = request.body
 
-      console.log('Code:', code)
-      console.log('Google Client ID:', Env.GOOGLE_CLIENT_ID)
-      console.log('Google Secret:', Env.GOOGLE_SECRET)
-
       try {
         const accessTokenResponse = await axios.post(
           'https://oauth2.googleapis.com/token',
@@ -32,7 +28,7 @@ export async function authRoute(app: FastifyInstance) {
               client_secret: Env.GOOGLE_SECRET,
               code,
               grant_type: 'authorization_code',
-              redirect_uri: 'http://localhost:3000/api/auth/callback', // Substitua pelo seu redirect URI
+              redirect_uri: 'http://localhost:3000/api/auth/callback',
             },
             headers: {
               Accept: 'application/json',
@@ -50,8 +46,6 @@ export async function authRoute(app: FastifyInstance) {
             },
           },
         )
-
-        console.log('User Response:', userResponse.data)
 
         const userSchema = z.object({
           id: z.string(),
@@ -96,8 +90,6 @@ export async function authRoute(app: FastifyInstance) {
             expiresIn: '7 days',
           },
         )
-
-        console.log('Generated Token:', token)
 
         return reply.send({ token })
       } catch (error) {
