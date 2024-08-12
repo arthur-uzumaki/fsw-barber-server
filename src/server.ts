@@ -15,8 +15,9 @@ import { search } from '@/routers/search'
 import { createBooking } from '@/routers/create-booking'
 import { fetchBookingsByDate } from '@/routers/fetch-bookings-by-date'
 import { fetchBookingsUser } from '@/routers/fetch-bookings-user'
-import { fetchConfirmedBookings } from './routers/fetch-confirme-bookings'
-import { fetchConcludedBookings } from './routers/fetch-concluded-bookings'
+import { fetchConfirmedBookings } from '@/routers/fetch-confirme-bookings'
+import { fetchConcludedBookings } from '@/routers/fetch-concluded-bookings'
+import { deleteBooking } from '@/routers/delete-booking'
 
 const app = fastify()
 
@@ -41,6 +42,7 @@ app.register(fetchBookingsByDate)
 app.register(fetchBookingsUser)
 app.register(fetchConfirmedBookings)
 app.register(fetchConcludedBookings)
+app.register(deleteBooking)
 
 app
   .listen({

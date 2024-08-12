@@ -46,8 +46,6 @@ export async function createBooking(app: FastifyInstance) {
         },
       })
 
-      console.log('booke criado', booking)
-
       return replay.status(201).send(booking)
     },
   )
