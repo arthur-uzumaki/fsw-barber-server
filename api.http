@@ -27,3 +27,8 @@ Content-Type: application/json
 {
   "date": "2024-08-18T09:00:00"
 }
+
+### 
+
+GET {{baseUrl}}/bookings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJ0aHVyIFNvdXNhIFJhYmVsbyIsImF2YXRhcl91cmwiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NKYkdDN2RORng2OWVCRnhDYm1ieXd4bm11NjgxY2wtdTZqeHhqcTYwczlvZW1DaUxzPXM5Ni1jIiwiZW1haWwiOiJhcnRodXIucmFiZWxvQGVzdHVkYW50ZS5pZnRvLmVkdS5iciIsInN1YiI6ImU4MDcwNzI2LWYyYzktNDkwMC05MzEzLWQ4NjlhMmQ1MzYwMiIsImlhdCI6MTcyMzM0NjM2MiwiZXhwIjoxNzIzOTUxMTYyfQ.NDB-6yXYc0_4BV3_Ue6j0C9RzSxO2iiu6dgPC5ebvGE

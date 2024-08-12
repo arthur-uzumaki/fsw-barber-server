@@ -5,7 +5,7 @@ import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { endOfDay, startOfDay } from 'date-fns'
 import z from 'zod'
 
-export async function fetchBookings(app: FastifyInstance) {
+export async function fetchBookingsByDate(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
     '/bookings/:serviceId',
     {

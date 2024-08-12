@@ -13,7 +13,10 @@ import { fetchBarberShopDetail } from '@/routers/fetch-barber-shop-details'
 import { authRoute } from '@/routers/auth'
 import { search } from '@/routers/search'
 import { createBooking } from '@/routers/create-booking'
-import { fetchBookings } from '@/routers/fetch-bookings'
+import { fetchBookingsByDate } from '@/routers/fetch-bookings-by-date'
+import { fetchBookingsUser } from '@/routers/fetch-bookings-user'
+import { fetchConfirmedBookings } from './routers/fetch-confirme-bookings'
+import { fetchConcludedBookings } from './routers/fetch-concluded-bookings'
 
 const app = fastify()
 
@@ -25,14 +28,19 @@ app.register(cors, {
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
 })
 
-app.register(jwt, { secret: 'fwsbarber' })
+app.register(jwt, {
+  secret: Env.JWT_TOKEN,
+})
 
 app.register(authRoute)
 app.register(fetchBarberShop)
 app.register(fetchBarberShopDetail)
 app.register(search)
 app.register(createBooking)
-app.register(fetchBookings)
+app.register(fetchBookingsByDate)
+app.register(fetchBookingsUser)
+app.register(fetchConfirmedBookings)
+app.register(fetchConcludedBookings)
 
 app
   .listen({
