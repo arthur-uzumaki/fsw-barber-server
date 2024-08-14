@@ -8,6 +8,8 @@ export async function fetchBarberShop(app: FastifyInstance) {
     '/barbershops',
     {
       schema: {
+        summary: 'fetch barber shop',
+        tags: ['barbershop'],
         response: {
           200: z.object({
             barbershops: z.array(

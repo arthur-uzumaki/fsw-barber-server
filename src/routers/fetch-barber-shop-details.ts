@@ -8,6 +8,8 @@ export async function fetchBarberShopDetail(app: FastifyInstance) {
     '/barbershops/:id',
     {
       schema: {
+        summary: 'fetch barber shop details',
+        tags: ['barbershop'],
         params: z.object({
           id: z.string().uuid(),
         }),

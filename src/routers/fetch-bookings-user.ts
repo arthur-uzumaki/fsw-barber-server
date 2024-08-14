@@ -12,6 +12,8 @@ export async function fetchBookingsUser(app: FastifyInstance) {
     '/bookings',
     {
       schema: {
+        summary: 'search reservation user',
+        tags: ['booking'],
         response: {
           200: z.object({
             bookings: z

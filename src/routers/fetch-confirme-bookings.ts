@@ -12,6 +12,8 @@ export async function fetchConfirmedBookings(app: FastifyInstance) {
     '/bookings/confirmed',
     {
       schema: {
+        summary: 'fetch confirme booking ',
+        tags: ['booking'],
         response: {
           200: z.object({
             bookings: z

@@ -12,6 +12,8 @@ export async function createBooking(app: FastifyInstance) {
     '/bookings/:serviceId',
     {
       schema: {
+        summary: 'create booking',
+        tags: ['booking'],
         params: z.object({
           serviceId: z.string().uuid(),
         }),

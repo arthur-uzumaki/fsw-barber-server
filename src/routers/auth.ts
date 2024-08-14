@@ -10,6 +10,8 @@ export async function authRoute(app: FastifyInstance) {
     '/sessions',
     {
       schema: {
+        summary: 'authenticate user google',
+        tags: ['auth'],
         body: z.object({
           code: z.string(),
         }),

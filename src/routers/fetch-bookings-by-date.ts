@@ -10,6 +10,8 @@ export async function fetchBookingsByDate(app: FastifyInstance) {
     '/bookings/:serviceId',
     {
       schema: {
+        summary: 'fetch booking by date',
+        tags: ['booking'],
         params: z.object({
           serviceId: z.string().uuid(),
         }),

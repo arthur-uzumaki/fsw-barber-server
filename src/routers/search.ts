@@ -8,6 +8,8 @@ export async function search(app: FastifyInstance) {
     '/search-barbershops',
     {
       schema: {
+        summary: 'search barber shop title and service',
+        tags: ['barbershop'],
         querystring: z.object({
           title: z.string().optional(),
           service: z.string().optional(),

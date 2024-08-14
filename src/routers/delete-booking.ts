@@ -8,6 +8,8 @@ export async function deleteBooking(app: FastifyInstance) {
     '/bookings/:id',
     {
       schema: {
+        summary: 'delete booking',
+        tags: ['booking'],
         params: z.object({
           id: z.string().uuid(),
         }),
