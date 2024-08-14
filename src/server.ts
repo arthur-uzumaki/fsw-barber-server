@@ -4,9 +4,13 @@ import { Env } from '@/env/env'
 import jwt from '@fastify/jwt'
 
 import {
+  jsonSchemaTransform,
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUi from '@fastify/swagger-ui'
 
 import { fetchBarberShop } from '@/routers/fetch-barber-shop'
 import { fetchBarberShopDetail } from '@/routers/fetch-barber-shop-details'
@@ -20,6 +24,23 @@ import { fetchConcludedBookings } from '@/routers/fetch-concluded-bookings'
 import { deleteBooking } from '@/routers/delete-booking'
 
 const app = fastify()
+
+app.register(fastifySwagger, {
+  swagger: {
+    consumes: ['application/json'],
+    produces: ['application/json'],
+    info: {
+      title: 'FSW-BARBER',
+      description: 'Especificação da API para o back-end aplicação FSW-BARBER',
+      version: '1.0.0',
+    },
+  },
+  transform: jsonSchemaTransform,
+})
+
+app.register(fastifySwaggerUi, {
+  prefix: '/docs',
+})
 
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
