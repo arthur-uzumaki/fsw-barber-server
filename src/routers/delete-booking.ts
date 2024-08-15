@@ -1,3 +1,4 @@
+import { ClientError } from '@/errors/client-error'
 import { prisma } from '@/lib/prisma'
 import { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
@@ -15,7 +16,7 @@ export async function deleteBooking(app: FastifyInstance) {
         }),
       },
     },
-    async (request, reply) => {
+    async (request) => {
       const { id } = request.params
 
       const booking = await prisma.booke.findUnique({
@@ -25,7 +26,7 @@ export async function deleteBooking(app: FastifyInstance) {
       })
 
       if (!booking) {
-        throw new Error('Booking not found')
+        throw new ClientError('Booking not found')
       }
 
       await prisma.booke.delete({

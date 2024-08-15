@@ -1,3 +1,4 @@
+import { ClientError } from '@/errors/client-error'
 import { prisma } from '@/lib/prisma'
 import { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
@@ -52,7 +53,7 @@ export async function fetchBarberShopDetail(app: FastifyInstance) {
       })
 
       if (!barbershop) {
-        throw new Error('Barber Shop not found')
+        throw new ClientError('Barber Shop not found')
       }
 
       const barbershopWithConvertedPrices = {

@@ -4,6 +4,7 @@ import { ZodTypeProvider } from 'fastify-type-provider-zod'
 
 import { endOfDay, startOfDay } from 'date-fns'
 import z from 'zod'
+import { ClientError } from '@/errors/client-error'
 
 export async function fetchBookingsByDate(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
@@ -45,7 +46,7 @@ export async function fetchBookingsByDate(app: FastifyInstance) {
       })
 
       if (!service) {
-        throw new Error('Services not found')
+        throw new ClientError('Services not found')
       }
 
       const bookings = await prisma.booke.findMany({

@@ -26,10 +26,6 @@ export async function createBooking(app: FastifyInstance) {
       const { serviceId } = request.params
       const { date } = request.body
 
-      if (!request.user) {
-        return replay.status(401).send({ error: 'User not authenticated' })
-      }
-
       const service = await prisma.barbershopservice.findUnique({
         where: {
           id: serviceId,
