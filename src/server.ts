@@ -23,6 +23,8 @@ import { fetchConfirmedBookings } from '@/routers/fetch-confirme-bookings'
 import { fetchConcludedBookings } from '@/routers/fetch-concluded-bookings'
 import { deleteBooking } from '@/routers/delete-booking'
 
+import { erroHandle } from '@/erro-handle'
+
 const app = fastify()
 
 app.register(fastifySwagger, {
@@ -54,6 +56,7 @@ app.register(jwt, {
   secret: Env.JWT_TOKEN,
 })
 
+app.setErrorHandler(erroHandle)
 app.register(authRoute)
 app.register(fetchBarberShop)
 app.register(fetchBarberShopDetail)

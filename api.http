@@ -5,7 +5,7 @@ GET  {{baseUrl}}/barbershops
 
 ###
 
-GET {{baseUrl}}/barbershops/0deb0342-3ff2-4b79-a554-cc36f85450a4
+GET {{baseUrl}}/barbershops/d09bdb12-b453-4fa4-80fa-47974d994921
 
 ###
 POST {{baseUrl}}/sessions
